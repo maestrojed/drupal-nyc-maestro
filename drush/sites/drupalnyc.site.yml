@@ -1,0 +1,15 @@
+local:
+  host: drupalnyc.local
+  user: vagrant
+  root: /var/www/drupalnyc-maestro/web
+  uri: http://drupalnyc.local
+drupalnyc:
+  host: drupalnyc.local
+  user: vagrant
+  root: /var/www/drupalnyc-maestro/web
+  uri: http://drupalnyc.local
+drupalnyc-maestro:
+  host: drupalnyc.local
+  user: vagrant
+  root: /var/www/drupalnyc-maestro/web
+  uri: http://drupalnyc.local
