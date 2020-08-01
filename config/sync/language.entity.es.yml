@@ -1,0 +1,11 @@
+uuid: 046194e4-b82e-4d54-83bf-7ffbb57d71c9
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: zMB9ry6srBzolYME_HGgBkzGve1qBlnsQ8C3wT6CQxs
+id: es
+label: Spanish
+direction: ltr
+weight: 1
+locked: false
