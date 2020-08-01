@@ -1,3 +1,4 @@
 .idea/
 */sites/*/settings.local.php
+*/sites/*/files/*
 .DS_Store
