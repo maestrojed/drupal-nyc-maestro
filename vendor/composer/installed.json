@@ -1996,6 +1996,64 @@
         "description": "Locked core dependencies; require this project INSTEAD OF drupal/core."
     },
     {
+        "name": "drupal/maestro",
+        "version": "2.1.0",
+        "version_normalized": "2.1.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://git.drupalcode.org/project/maestro.git",
+            "reference": "8.x-2.1"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://ftp.drupal.org/files/projects/maestro-8.x-2.1.zip",
+            "reference": "8.x-2.1",
+            "shasum": "298cc1a7bdbcf38ac6d5fae5bc191e8bb19c5b2d"
+        },
+        "require": {
+            "drupal/core": "^8.8"
+        },
+        "require-dev": {
+            "drupal/maestro_taskconsole": "*",
+            "drupal/webform": "*"
+        },
+        "type": "drupal-module",
+        "extra": {
+            "drupal": {
+                "version": "8.x-2.1",
+                "datestamp": "1591281890",
+                "security-coverage": {
+                    "status": "covered",
+                    "message": "Covered by Drupal's security advisory policy"
+                }
+            }
+        },
+        "installation-source": "dist",
+        "notification-url": "https://packages.drupal.org/8/downloads",
+        "license": [
+            "GPL-2.0-or-later"
+        ],
+        "authors": [
+            {
+                "name": "_randy",
+                "homepage": "https://www.drupal.org/user/704970"
+            },
+            {
+                "name": "_timpatrick",
+                "homepage": "https://www.drupal.org/user/1944274"
+            },
+            {
+                "name": "blainelang",
+                "homepage": "https://www.drupal.org/user/726382"
+            }
+        ],
+        "description": "Provides the engine and API for Maestro.",
+        "homepage": "https://www.drupal.org/project/maestro",
+        "support": {
+            "source": "https://git.drupalcode.org/project/maestro"
+        }
+    },
+    {
         "name": "drupal/masquerade",
         "version": "2.0.0-beta4",
         "version_normalized": "2.0.0.0-beta4",
