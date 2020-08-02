@@ -1,0 +1,7 @@
+name: DrupalNYC Maestro
+type: module
+description: Custom module to implement workflows for a DrupalNYC Demo
+core: 8.x
+package: DrupalNYC
+dependencies:
+  - maestro
