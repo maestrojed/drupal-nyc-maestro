@@ -1,0 +1,20 @@
+uuid: fb853859-57bc-4271-8a24-de59dc98b1af
+langcode: en
+status: true
+dependencies:
+  module:
+    - masquerade
+  theme:
+    - bartik
+id: masquerade
+theme: bartik
+region: header
+weight: -6
+provider: null
+plugin: masquerade
+settings:
+  id: masquerade
+  label: Masquerade
+  provider: masquerade
+  label_display: visible
+visibility: {  }

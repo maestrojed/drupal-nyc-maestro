@@ -1,4 +1,4 @@
-uuid: 9366e572-d74d-4829-926a-7f6ae8cd0da8
+uuid: 52ebd904-0956-42d5-a3ea-f2047721938f
 langcode: en
 status: true
 dependencies:
@@ -7,7 +7,7 @@ dependencies:
   module:
     - ckeditor
 _core:
-  default_config_hash: 5sXh8-bdkb6AYERDE9fIz0c1VnvpNU4g1DlX13MRAJw
+  default_config_hash: AqlPmO16LvJI4D0Ih6u4GFQIzqr5OnLgAUSjcUGWk2g
 format: basic_html
 editor: ckeditor
 settings:
@@ -33,7 +33,7 @@ settings:
           name: Media
           items:
             - Blockquote
-            - DrupalMediaLibrary
+            - DrupalImage
         -
           name: 'Block Formatting'
           items:
@@ -43,15 +43,13 @@ settings:
           items:
             - Source
   plugins:
-    language:
-      language_list: un
     stylescombo:
       styles: ''
 image_upload:
-  status: false
+  status: true
   scheme: public
   directory: inline-images
   max_size: ''
   max_dimensions:
-    width: null
-    height: null
+    width: 0
+    height: 0
