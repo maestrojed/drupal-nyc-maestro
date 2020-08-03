@@ -12,6 +12,7 @@ module:
   contextual: 0
   datetime: 0
   dblog: 0
+  drupalnyc_maestro: 0
   dynamic_page_cache: 0
   editor: 0
   field: 0
@@ -22,6 +23,10 @@ module:
   history: 0
   image: 0
   link: 0
+  maestro: 0
+  maestro_taskconsole: 0
+  maestro_template_builder: 0
+  maestro_utilities: 0
   masquerade: 0
   menu_link_content: 0
   menu_ui: 0

@@ -1,0 +1,262 @@
+uuid: 53e5c654-a603-4029-8d0c-93e8727f880f
+langcode: en
+status: true
+dependencies: {  }
+id: content_moderation
+label: 'Content Moderation'
+app_group: 0
+canvas_height: 900
+canvas_width: 800
+default_workflow_timeline_stage_count: 2
+show_details: false
+validated: true
+views_attached:
+  maestro_entity_identifiers:
+    view_machine_name: maestro_entity_identifiers
+    view_weight: -10
+    view_display: 'taskconsole_display;Task Console Display'
+  maestro_completed_tasks:
+    view_machine_name: maestro_completed_tasks
+    view_weight: -9
+    view_display: default;Master
+variables:
+  initiator:
+    variable_id: initiator
+    variable_value: '0'
+  workflow_timeline_stage_count:
+    variable_id: workflow_timeline_stage_count
+    variable_value: ''
+  workflow_current_stage:
+    variable_id: workflow_current_stage
+    variable_value: ''
+  workflow_current_stage_message:
+    variable_id: workflow_current_stage_message
+    variable_value: ''
+  assigned_to:
+    variable_id: assigned_to
+    variable_value: ''
+initiator: null
+workflow_timeline_stage_count: null
+workflow_current_stage: null
+workflow_current_stage_message: null
+tasks:
+  start:
+    id: start
+    tasktype: MaestroStart
+    label: Start
+    nextstep: create_or_select
+    nextfalsestep: ''
+    top: '15'
+    left: '65'
+    assignby: fixed
+    assignto: engine
+  review_article:
+    id: review_article
+    label: 'Review Article'
+    tasktype: MaestroContentType
+    nextstep: if_approved
+    nextfalsestep: ''
+    top: '225'
+    left: '555'
+    assignby: fixed
+    assignto: ''
+    raphael: ''
+    to: ''
+    pointedfrom: ''
+    falsebranch: ''
+    lines: {  }
+    data:
+      unique_id: new_article
+      content_type: article
+      save_edit_later: 0
+      link_to_edit: 0
+      show_maestro_buttons_on_view: 1
+      accept_label: Accept
+      reject_label: Reject
+      accept_redirect_to: /taskconsole
+      reject_redirect_to: /taskconsole
+      supply_maestro_ids_in_url: 0
+      redirect_to: taskconsole
+    handler: '/node/add/article?maestro=1'
+    assigned: 'user:variable:assigned_to'
+    runonce: false
+    showindetail: true
+    participate_in_workflow_status_stage: false
+    workflow_status_stage_number: 0
+    workflow_status_stage_message: ''
+    notifications:
+      notification_assignments: 'user:variable:initiator:assignment'
+      notification_assignment_subject: 'Your article has been reviewed'
+      notification_assignment: 'Your article has been reviewed'
+      notification_reminder_subject: ''
+      notification_reminder: ''
+      notification_escalation_subject: ''
+      notification_escalation: ''
+      reminder_after: 0
+      escalation_after: 0
+  if_approved:
+    id: if_approved
+    label: 'if approved'
+    tasktype: MaestroIf
+    nextstep: end
+    nextfalsestep: feedback
+    top: '340'
+    left: '390'
+    assignby: fixed
+    assignto: ''
+    raphael: ''
+    to: ''
+    pointedfrom: ''
+    falsebranch: ''
+    lines: {  }
+    data:
+      if:
+        method: bylasttaskstatus
+        variable: initiator
+        operator: '='
+        variable_value: ''
+        status: '1'
+    assigned: ''
+    runonce: false
+    handler: ''
+    showindetail: true
+    participate_in_workflow_status_stage: false
+    workflow_status_stage_number: 0
+    workflow_status_stage_message: ''
+    notifications:
+      notification_assignment_subject: null
+      notification_assignment: null
+      notification_reminder_subject: null
+      notification_reminder: null
+      notification_escalation_subject: null
+      notification_escalation: null
+      reminder_after: null
+      escalation_after: null
+  end:
+    id: end
+    label: end
+    tasktype: MaestroEnd
+    nextstep: ''
+    nextfalsestep: ''
+    top: '430'
+    left: '70'
+    assignby: fixed
+    assignto: ''
+    raphael: ''
+    to: ''
+    pointedfrom: ''
+    falsebranch: ''
+    lines: {  }
+  assign_to_editor:
+    id: assign_to_editor
+    label: 'Assign To Editor'
+    tasktype: MaestroInteractive
+    nextstep: review_article
+    nextfalsestep: ''
+    top: '140'
+    left: '400'
+    assignby: fixed
+    assignto: ''
+    raphael: ''
+    to: ''
+    pointedfrom: ''
+    falsebranch: ''
+    lines: {  }
+    handler: drupalnyc_maestro_workflow_maestro_reassign_form
+    data:
+      modal: modal
+      redirect_to: taskconsole
+    assigned: 'user:variable:initiator'
+    runonce: false
+    showindetail: true
+    participate_in_workflow_status_stage: false
+    workflow_status_stage_number: 0
+    workflow_status_stage_message: ''
+    notifications:
+      notification_assignment_subject: ''
+      notification_assignment: ''
+      notification_reminder_subject: ''
+      notification_reminder: ''
+      notification_escalation_subject: ''
+      notification_escalation: ''
+      reminder_after: 0
+      escalation_after: 0
+  create_or_select:
+    id: create_or_select
+    label: 'Create or Select an Article'
+    tasktype: MaestroSelectContent
+    nextstep: assign_to_editor
+    nextfalsestep: ''
+    top: '10'
+    left: '220'
+    assignby: fixed
+    assignto: ''
+    raphael: ''
+    to: ''
+    pointedfrom: ''
+    falsebranch: ''
+    lines: {  }
+    data:
+      modal: notmodal
+      redirect_to: /taskconsole
+      content_type: article
+      unique_id: new_article
+    assigned: 'user:variable:initiator'
+    runonce: false
+    handler: ''
+    showindetail: true
+    participate_in_workflow_status_stage: false
+    workflow_status_stage_number: 0
+    workflow_status_stage_message: ''
+    notifications:
+      notification_assignment_subject: ''
+      notification_assignment: ''
+      notification_reminder_subject: ''
+      notification_reminder: ''
+      notification_escalation_subject: ''
+      notification_escalation: ''
+      reminder_after: 0
+      escalation_after: 0
+  feedback:
+    id: feedback
+    label: 'Feedback Needs Implementation'
+    tasktype: MaestroContentType
+    nextstep: assign_to_editor
+    nextfalsestep: ''
+    top: '230'
+    left: '190'
+    assignby: fixed
+    assignto: ''
+    raphael: ''
+    to: ''
+    pointedfrom: ''
+    falsebranch: ''
+    lines: {  }
+    data:
+      unique_id: new_article
+      content_type: article
+      save_edit_later: 1
+      link_to_edit: 1
+      show_maestro_buttons_on_view: 0
+      accept_label: ''
+      reject_label: ''
+      accept_redirect_to: ''
+      reject_redirect_to: ''
+      supply_maestro_ids_in_url: 0
+      redirect_to: taskconsole
+    handler: '/node/add/article?maestro=1'
+    assigned: 'user:variable:initiator'
+    runonce: false
+    showindetail: true
+    participate_in_workflow_status_stage: false
+    workflow_status_stage_number: 0
+    workflow_status_stage_message: ''
+    notifications:
+      notification_assignment_subject: ''
+      notification_assignment: ''
+      notification_reminder_subject: ''
+      notification_reminder: ''
+      notification_escalation_subject: ''
+      notification_escalation: ''
+      reminder_after: 0
+      escalation_after: 0
